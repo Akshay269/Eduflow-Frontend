@@ -1,4 +1,4 @@
-const BASE_URL = "http://13.201.88.77:8080";
+const BASE_URL = "https://d35qzhxh4jwgyd.cloudfront.net";
 
 let token: string | null = null;
 
