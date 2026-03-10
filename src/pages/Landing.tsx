@@ -13,12 +13,16 @@ const Landing = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    coursesApi.list(0, 6).then(res => setFeatured(res.content || [])).catch(() => {});
+    coursesApi
+      .list(0, 6)
+      .then((res) => setFeatured(res.content || []))
+      .catch(() => {});
   }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) navigate(`/courses?keyword=${encodeURIComponent(searchQuery)}`);
+    if (searchQuery.trim())
+      navigate(`/courses?keyword=${encodeURIComponent(searchQuery)}`);
   };
 
   return (
@@ -31,10 +35,12 @@ const Landing = () => {
               Learn without limits
             </span>
             <h1 className="text-4xl font-display font-bold leading-tight text-primary-foreground lg:text-6xl">
-              Master new skills with <span className="text-accent">EduFlow</span>
+              Master new skills with{" "}
+              <span className="text-accent">EduFlow</span>
             </h1>
             <p className="text-lg text-primary-foreground/70 max-w-lg">
-              Access expert-led courses, build real-world projects, and accelerate your career growth.
+              Access expert-led courses, build real-world projects, and
+              accelerate your career growth.
             </p>
             <form onSubmit={handleSearch} className="flex max-w-md gap-2">
               <div className="relative flex-1">
@@ -43,10 +49,13 @@ const Landing = () => {
                   placeholder="Search courses..."
                   className="pl-10 bg-card/90 border-border/50"
                   value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
-              <Button type="submit" className="gradient-accent border-0 text-accent-foreground font-semibold">
+              <Button
+                type="submit"
+                className="gradient-accent border-0 text-accent-foreground font-semibold"
+              >
                 Search
               </Button>
             </form>
@@ -62,13 +71,18 @@ const Landing = () => {
             { icon: BookOpen, label: "Expert Courses", value: "500+" },
             { icon: Users, label: "Active Learners", value: "10K+" },
             { icon: Award, label: "Certificates Earned", value: "5K+" },
-          ].map(s => (
-            <div key={s.label} className="flex items-center gap-4 rounded-lg border border-border bg-card p-5 shadow-card">
+          ].map((s) => (
+            <div
+              key={s.label}
+              className="flex items-center gap-4 rounded-lg border border-border bg-card p-5 shadow-card"
+            >
               <div className="rounded-lg bg-accent/10 p-3">
                 <s.icon className="h-5 w-5 text-accent" />
               </div>
               <div>
-                <p className="text-xl font-display font-bold text-foreground">{s.value}</p>
+                <p className="text-xl font-display font-bold text-foreground">
+                  {s.value}
+                </p>
                 <p className="text-sm text-muted-foreground">{s.label}</p>
               </div>
             </div>
@@ -80,16 +94,26 @@ const Landing = () => {
       <section className="container mx-auto px-4 py-20">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-2xl font-display font-bold text-foreground">Featured Courses</h2>
-            <p className="text-sm text-muted-foreground mt-1">Start learning from the best</p>
+            <h2 className="text-2xl font-display font-bold text-foreground">
+              Featured Courses
+            </h2>
+            <p className="text-sm text-muted-foreground mt-1">
+              Start learning from the best
+            </p>
           </div>
-          <Button variant="ghost" onClick={() => navigate("/courses")} className="text-accent">
+          <Button
+            variant="ghost"
+            onClick={() => navigate("/courses")}
+            className="text-accent"
+          >
             View all <ArrowRight className="ml-1 h-4 w-4" />
           </Button>
         </div>
         {featured.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featured.map(c => <CourseCard key={c.id} course={c} />)}
+            {featured.map((c) => (
+              <CourseCard key={c.id} course={c} />
+            ))}
           </div>
         ) : (
           <div className="text-center py-12 text-muted-foreground">
@@ -105,7 +129,9 @@ const Landing = () => {
             <BookOpen className="h-5 w-5 text-accent" />
             EduFlow
           </div>
-          <p className="text-sm text-muted-foreground">© 2026 EduFlow. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">
+            © 2026 EduFlow. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>

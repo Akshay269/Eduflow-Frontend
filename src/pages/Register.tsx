@@ -35,19 +35,27 @@ const Register = () => {
       <div className="hidden lg:flex lg:w-1/2 gradient-hero items-center justify-center p-12">
         <div className="text-center space-y-6">
           <BookOpen className="h-16 w-16 text-accent mx-auto" />
-          <h1 className="text-4xl font-display font-bold text-primary-foreground">Join EduFlow</h1>
-          <p className="text-primary-foreground/70 max-w-md">Start your learning journey today.</p>
+          <h1 className="text-4xl font-display font-bold text-primary-foreground">
+            Join EduFlow
+          </h1>
+          <p className="text-primary-foreground/70 max-w-md">
+            Start your learning journey today.
+          </p>
         </div>
       </div>
       <div className="flex flex-1 items-center justify-center p-8">
         <div className="w-full max-w-sm space-y-8">
           <div className="text-center">
-            <h2 className="text-2xl font-display font-bold text-foreground">Create account</h2>
-            <p className="text-sm text-muted-foreground mt-1">Choose your role and get started</p>
+            <h2 className="text-2xl font-display font-bold text-foreground">
+              Create account
+            </h2>
+            <p className="text-sm text-muted-foreground mt-1">
+              Choose your role and get started
+            </p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex gap-2">
-              {(["STUDENT", "INSTRUCTOR"] as const).map(r => (
+              {(["STUDENT", "INSTRUCTOR"] as const).map((r) => (
                 <button
                   key={r}
                   type="button"
@@ -64,15 +72,36 @@ const Register = () => {
             </div>
             <div className="space-y-2">
               <Label htmlFor="name">Full Name</Label>
-              <Input id="name" value={name} onChange={e => setName(e.target.value)} required placeholder="John Doe" />
+              <Input
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                placeholder="John Doe"
+              />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="you@example.com" />
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="you@example.com"
+              />
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} required placeholder="••••••••" minLength={6} />
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="••••••••"
+                minLength={6}
+              />
             </div>
             <Button type="submit" className="w-full" disabled={loading}>
               {loading ? "Creating..." : "Create account"}
@@ -80,7 +109,12 @@ const Register = () => {
           </form>
           <p className="text-center text-sm text-muted-foreground">
             Already have an account?{" "}
-            <Link to="/login" className="text-accent font-medium hover:underline">Sign in</Link>
+            <Link
+              to="/login"
+              className="text-accent font-medium hover:underline"
+            >
+              Sign in
+            </Link>
           </p>
         </div>
       </div>
