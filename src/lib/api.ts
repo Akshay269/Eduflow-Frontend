@@ -1,4 +1,4 @@
-const BASE_URL = "http://65.1.160.19:8080";
+const BASE_URL = "http://13.201.88.77:8080";
 
 let token: string | null = null;
 
