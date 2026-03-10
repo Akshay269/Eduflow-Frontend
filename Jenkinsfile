@@ -57,6 +57,7 @@ pipeline {
         }
     }
 
+
     post {
         success {
             echo '✅ Frontend deployed successfully!'
